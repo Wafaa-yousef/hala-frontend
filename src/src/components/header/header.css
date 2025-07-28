@@ -1,0 +1,31 @@
+@media(max-height: 50px){
+  .header {
+  position: relative;
+  max-width: 50px;
+  overflow: hidden;
+  
+}
+
+
+ .logo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  align-items: left;
+  color: #1e293b;
+}
+
+
+.header-nav {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.header-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+}
