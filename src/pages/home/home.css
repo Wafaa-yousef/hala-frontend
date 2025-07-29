@@ -1,24 +1,103 @@
-.home-container{
-  min-height: 100vh;
-  background-color:#f7f9fc;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7fa;
+  overflow-x: hidden;
+}
+
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+
+.home-box {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+.home-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.home-text {
+  flex: 1 1 300px;
+  padding: 30px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items:center;
   justify-content: center;
- 
-}
-.image{
-  flex:right;
-  width:30%;
-  height:auto;
-  margin:1rem;
-
-}
-.hala-logo{
-  object-fit: contain;
-  width:60px;
-  height:60px;
 }
 
 
+.hala-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 20px auto;
+}
+
+
+.home-text h1 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #1b8dc2;
+}
+
+
+.home-text p {
+  font-size: 18px;
+  color: #0a368f;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .home-box {
+    flex-direction: column;
+  }
+
+  .home-image {
+    max-width: 100%;
+  }
+
+  .home-text {
+    padding: 20px;
+  }
+
+  .home-text h1 {
+    font-size: 20px;
+  }
+
+  .home-text p {
+    font-size: 16px;
+  }
+}

@@ -1,14 +1,18 @@
+
 .pricing-table-container {
   margin: 20px;
   padding: 20px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* for small screens */
 }
+
 
 .pricing-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; 
 }
 
 .pricing-table th,
@@ -18,7 +22,29 @@
   border-bottom: 1px solid #eee;
 }
 
+
 .pricing-table th {
   background-color: #f9f9f9;
   font-weight: bold;
+}
+
+
+.pricing-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.pricing-table tr:hover {
+  background-color: #f1f7ff;
+}
+
+.pricing-table .featured {
+  background-color: #e0f7fa;
+  font-weight: bold;
+  border-left: 3px solid #00bcd4;
+}
+
+@media (max-width: 768px) {
+  .pricing-table {
+    min-width: 100%;
+  }
 }
