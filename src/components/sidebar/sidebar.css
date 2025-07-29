@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 60px; 
+  width: 60px;
   background-color: #1f2937;
   overflow: hidden;
   transition: width 0.3s ease;
@@ -39,7 +39,7 @@
   background-color: #374151;
 }
 
-/* Link Styling */
+
 .sidebar a {
   text-decoration: none;
   color: white;
@@ -54,7 +54,6 @@
   background-color: #4b5563;
 }
 
-
 .sidebar:hover li a {
   opacity: 1;
 }
@@ -64,30 +63,26 @@
   margin-right: 10px;
   min-width: 20px;
   text-align: center;
+  opacity: 1;
 }
 
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 0;
+    width: 60px !important;
+    overflow: hidden;
   }
 
   .sidebar:hover {
-    width: 180px;
-  }
-}
-@media (max-width: 768px) {
-  .sidebar {
-    width: 60px !important; /* Keep sidebar visible in collapsed form */
+    width: 60px !important;
   }
 
-  .sidebar:hover {
-    width: 60px !important; /* Disable hover expansion on mobile */
-  }
-
-  /* Make sure links inside sidebar are visible */
   .sidebar li a {
+    opacity: 0 !important;
+    padding-left: 0;
+  }
+
+  .sidebar li i {
     opacity: 1 !important;
-    padding-left: 10px;
   }
 }
