@@ -76,3 +76,18 @@
     width: 180px;
   }
 }
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px !important; /* Keep sidebar visible in collapsed form */
+  }
+
+  .sidebar:hover {
+    width: 60px !important; /* Disable hover expansion on mobile */
+  }
+
+  /* Make sure links inside sidebar are visible */
+  .sidebar li a {
+    opacity: 1 !important;
+    padding-left: 10px;
+  }
+}
