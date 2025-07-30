@@ -18,9 +18,10 @@ export default function AdminTrends() {
   
   useEffect(() => {
   let isMounted = true;
+  const apiURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   const fetchTrends = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/admin/trends`)
+    axios.get(`${apiURL}/api/admin/trends`)
       .then(res => {
         if (!isMounted) return;
 

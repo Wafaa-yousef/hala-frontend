@@ -21,8 +21,8 @@ const  handleSubmit= async(e)=>{
     
     
     try{
-     
-     const  res=await axios.post(`${process.env.REACT_APP_API_URL}/api/customer/quote`,{
+     const apiUrl= process.env.NODE_ENV === "development"?"http://localhost:5000":process.env.REACT_APP_API_URL ;
+     const  res=await axios.post(`${apiUrl}/api/customer/quote`,{
              warehouse,
         storageType,
         pallets: Number(pallets)

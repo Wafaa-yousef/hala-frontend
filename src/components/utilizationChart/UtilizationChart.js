@@ -12,10 +12,8 @@ import {
   Cell
 } from "recharts";
 import "./utilizationChart.css";
-
-const socket = io( process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : `${process.env.REACT_APP_API_URL}`);
+const apiUrl= process.env.NODE_ENV === "development"?"http://localhost:5000":process.env.REACT_APP_API_URL ;
+const socket = io( apiUrl);
 
 const UtilizationChart = () => {
   const [chartData, setChartData] = useState([]);
@@ -27,7 +25,8 @@ const UtilizationChart = () => {
 
     async function fetchUtilization() {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/customer/latestUtilizationData`);
+         console.log(apiUrl)
+        const response = await axios.get(`${ apiUrl}/api/customer/latestUtilizationData`);
         const result = response.data;
 
         if (isMounted && Array.isArray(result)) {

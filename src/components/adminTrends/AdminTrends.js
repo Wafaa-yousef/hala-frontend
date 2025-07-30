@@ -7,9 +7,8 @@ import {
   Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import "./adminTrends.css"
-const socket = io( process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : `${process.env.REACT_APP_API_URL}`);
+const apiUrl= process.env.NODE_ENV === "development"?"http://localhost:5000":process.env.REACT_APP_API_URL ;
+const socket = io( apiUrl);
 export default function AdminTrends() {
   const [chartData, setChartData] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
@@ -20,7 +19,7 @@ export default function AdminTrends() {
   let isMounted = true;
 
   const fetchTrends = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/admin/trends`)
+    axios.get(`${apiUrl}/api/admin/trends`)
       .then(res => {
         if (!isMounted) return;
 

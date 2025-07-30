@@ -2,10 +2,8 @@ import  { useEffect, useState } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
 import "./pricingList.css";
-
-const socket = io( process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : `${process.env.REACT_APP_API_URL}`);
+const apiUrl= process.env.NODE_ENV === "development"?"http://localhost:5000":process.env.REACT_APP_API_URL ;
+const socket = io(apiUrl);
 
 const PricingList = () => {
   const [pricingData, setPricingData] = useState([]);
@@ -16,7 +14,7 @@ const PricingList = () => {
 
     async function fetchPricingData() {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/customer/pricingList`);
+        const res = await axios.get(`${apiUrl}/api/customer/pricingList`);
         if (isMounted) {
           setPricingData(res.data);
           setLoading(false);

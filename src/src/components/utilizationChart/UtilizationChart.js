@@ -27,10 +27,11 @@ const UtilizationChart = () => {
 
     async function fetchUtilization() {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/customer/latestUtilizationData`);
+        const apiURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+        const response = await axios.get(`${apiURL}/api/customer/latestUtilizationData`);
         const result = response.data;
 
-        if (isMounted && Array.isArray(result)) {
+        if (isMounted && Array.isArray(result)){
           const formatted = result.map((item) => ({
             name: item.warehouse,
             utilization: Math.round(item.totalUtilization * 100), // assuming already in percent form like 87.5

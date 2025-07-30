@@ -16,7 +16,8 @@ const PricingList = () => {
 
     async function fetchPricingData() {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/customer/pricingList`);
+        const apiURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+        const res = await axios.get(`${apiURL}/api/customer/pricingList`);
         if (isMounted) {
           setPricingData(res.data);
           setLoading(false);
